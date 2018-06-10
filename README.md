@@ -112,6 +112,7 @@ End Function
 * ![PrintScreen-01](https://github.com/josemarsilva/excel-vba-custom-functions/blob/master/PrintScreen-01.PNG) 
 * ![PrintScreen-02](https://github.com/josemarsilva/excel-vba-custom-functions/blob/master/PrintScreen-02.PNG) 
 * ![PrintScreen-03](https://github.com/josemarsilva/excel-vba-custom-functions/blob/master/PrintScreen-03.PNG) 
+* ![PrintScreen-04](https://github.com/josemarsilva/excel-vba-custom-functions/blob/master/PrintScreen-04.PNG) 
 
 
 ### 3.6. Guia para Demonstração ###
