@@ -8,7 +8,7 @@ Este repositório contém um conjunto de funções que podem se transformar em f
 
 ### 2.1. Function split(strString As String, strSeparator As String, nIdxElement As Integer) ###
 
-``vba
+```vba
 Function split(strString As String, strSeparator As String, nIdxElement As Integer)
     ' 2018-05-29 - Josemar Silva - split() return nIdxElement (starting with 1) of string strString using separator (strSeparator)
     Dim splitReturn As String
@@ -44,7 +44,7 @@ Function split(strString As String, strSeparator As String, nIdxElement As Integ
     split = splitReturn
     
 End Function
-``
+```
 
 ### 2.2. Function splitCount(strString As String, strSeparator As String) ###
 
