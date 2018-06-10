@@ -2,9 +2,11 @@
 
 ## 1. Introdução ##
 
-Este repositório contém um conjunto de funções que podem se transformar em fórmulas em **VBA (Visual Basic) para o Excel** muito usadas por mim e que podem ser úteis e reaproveitáveis  
+Este repositório contém uma biblioteca com conjunto de funções em **VBA (Visual Basic) para o Excel** que precisei customizar no Excel para atender minhas necessidades e acabei reutilizando com bastante frequencia.
 
-### 2. Documentação ###
+Na seção "3.6. Guia para Demonstração" tem o uso e explicação do uso de cada uma.
+
+### 2. Biblioteca de funções excel-vba-custom-functions ###
 
 ### 2.1. Function split(strString As String, strSeparator As String, nIdxElement As Integer) ###
 ```vba
@@ -107,6 +109,9 @@ End Function
 ### 3.5. Guia para Implantação ###
 
 * "Pasta de trabalho habilitada para macro do Excel (.xlsm)"
+* ![PrintScreen-01](https://github.com/josemarsilva/excel-vba-custom-functions/blob/master/PrintScreen-01.PNG) 
+* ![PrintScreen-02](https://github.com/josemarsilva/excel-vba-custom-functions/blob/master/PrintScreen-02.PNG) 
+* ![PrintScreen-03](https://github.com/josemarsilva/excel-vba-custom-functions/blob/master/PrintScreen-03.PNG) 
 
 
 ### 3.6. Guia para Demonstração ###
