@@ -7,6 +7,7 @@ Este repositório contém uma biblioteca com conjunto de funções em **VBA (Vis
 Biblioteca:
 * _split(strString As String, strSeparator As String, nIdxElement As Integer)_: retorna o nIdxElement elemento do string strString separado pelo string strSeparator
 * _splitCount(strString As String, strSeparator As String)_: retorna a quantidade de elementos do string strString separado pelo string strSeparator
+* _toUTF7(strString As String)_: retorna o string sem as acentuações da língua portuguesa
 
 Na seção "3.6. Guia para Demonstração" tem o uso e explicação do uso de cada uma.
 
@@ -15,7 +16,7 @@ Na seção "3.6. Guia para Demonstração" tem o uso e explicação do uso de ca
 ### 2.1. Function split(strString As String, strSeparator As String, nIdxElement As Integer) ###
 ```vba
 Function split(strString As String, strSeparator As String, nIdxElement As Integer)
-    ' 2018-05-29 - Josemar Silva - split() return nIdxElement (starting with 1) of string strString using separator (strSeparator)
+    ' 2018-05-29 - github.com/josemarsilva - split() return nIdxElement (starting with 1) of string strString using separator (strSeparator)
     Dim splitReturn As String
     ' Default
     splitReturn = ""
@@ -55,7 +56,7 @@ End Function
 ### 2.2. Function splitCount(strString As String, strSeparator As String) ###
 ```vba
 Function splitCount(strString As String, strSeparator As String)
-    ' 2018-06-10 - Josemar Silva - splitCount() return the count of elements of string (strString) using separator (strSeparator)
+    ' 2018-06-10 - github.com/josemarsilva - splitCount() return the count of elements of string (strString) using separator (strSeparator)
     Dim splitCountReturn As Integer
     ' Default
     splitCountReturn = 0
@@ -84,6 +85,15 @@ Function splitCount(strString As String, strSeparator As String)
     End If
     splitCount = splitCountReturn
     
+End Function
+```
+
+
+### 2.3. Function toUTF7(strString As String) ###
+```vba
+Function toUTF7(strString As String)
+    ' 2018-05-29 - github.com/josemarsilva - Take accents off
+    toUTF7 = Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(strString, "á", "a"), "Á", "A"), "à", "a"), "À", "A"), "ã", "a"), "Ã", "A"), "â", "a"), "Â", "A"), "é", "e"), "É", "E"), "ê", "e"), "Ê", "E"), "í", "i"), "Í", "I"), "ó", "o"), "Ó", "O"), "õ", "o"), "Õ", "O"), "ô", "o"), "Ô", "O"), "ú", "u"), "Ú", "U"), "ç", "c"), "Ç", "C")
 End Function
 ```
 
