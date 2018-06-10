@@ -4,6 +4,10 @@
 
 Este repositório contém uma biblioteca com conjunto de funções em **VBA (Visual Basic) para o Excel** que precisei customizar no Excel para atender minhas necessidades e acabei reutilizando com bastante frequencia.
 
+Biblioteca:
+* _split(strString As String, strSeparator As String, nIdxElement As Integer)_: retorna o nIdxElement elemento do string strString separado pelo string strSeparator
+* _splitCount(strString As String, strSeparator As String)_: retorna a quantidade de elementos do string strString separado pelo string strSeparator
+
 Na seção "3.6. Guia para Demonstração" tem o uso e explicação do uso de cada uma.
 
 ### 2. Biblioteca de funções excel-vba-custom-functions ###
