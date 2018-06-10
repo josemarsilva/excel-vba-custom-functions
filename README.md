@@ -7,7 +7,6 @@ Este repositório contém um conjunto de funções que podem se transformar em f
 ### 2. Documentação ###
 
 ### 2.1. Function split(strString As String, strSeparator As String, nIdxElement As Integer) ###
-
 ```vba
 Function split(strString As String, strSeparator As String, nIdxElement As Integer)
     ' 2018-05-29 - Josemar Silva - split() return nIdxElement (starting with 1) of string strString using separator (strSeparator)
@@ -46,7 +45,41 @@ Function split(strString As String, strSeparator As String, nIdxElement As Integ
 End Function
 ```
 
+
 ### 2.2. Function splitCount(strString As String, strSeparator As String) ###
+```vba
+Function splitCount(strString As String, strSeparator As String)
+    ' 2018-06-10 - Josemar Silva - splitCount() return the count of elements of string (strString) using separator (strSeparator)
+    Dim splitCountReturn As Integer
+    ' Default
+    splitCountReturn = 0
+    
+    i = 1 ' Start with first char of string
+    Do While i < Len(strString)
+    
+        ' split element between separators ...
+        nElementEndsAt = InStr(i, strString, strSeparator)
+        
+        ' Any element found starting on i position?
+        If nElementEndsAt = 0 Then
+            ' No element found! Exit Do
+            Exit Do
+        End If
+        
+        ' Next ...
+        splitCountReturn = splitCountReturn + 1
+        i = nElementEndsAt + Len(strSeparator)
+    
+    Loop
+    
+    ' Return
+    If splitCountReturn > 0 Then
+      splitCountReturn = splitCountReturn + 1
+    End If
+    splitCount = splitCountReturn
+    
+End Function
+```
 
 
 ## 3. Projeto ##
