@@ -137,7 +137,14 @@ End Function
 
 ### 3.6. Guia para Demonstração ###
 
-* n/a
+#### a. Exemplo com split() e splitCount() ####
+* Suponha uma situação de extração de extrato de conta corrente pelo .PDF
+```pdf
+TEC Depósito Dinheiro 650,00
+DA NET SERVIÇOS 2607613 29,80-
+```
+* Suponha que você quer extrair a informação de valor que está no final do string
+
 
 
 ## Referências ##
