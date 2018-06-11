@@ -143,9 +143,14 @@ End Function
 TEC Depósito Dinheiro 650,00
 DA NET SERVIÇOS 2607613 29,80-
 ```
-* Suponha que você quer extrair a informação de valor que está no final do string
+* Suponha que você quer extrair a informação de valor que está no final do string. O problema é que não há uma posição fixa. O que sabemos é que o valor é o último elemento separado por um espaço em branco " ". Você até poderia usar a formula PROCURAR() pelo espaço em branco, porém conforme pode ver no exemplo, ele pode se repetir e o pior de tudo não tem quantidade de repetições fixas. Neste problema as funções _split()_ e _splitCount()_ podem ajudar. Com o _splitCount()_ conseguimos saber quantos elementos possui o string separado pelo espaço em branco e com _split()_ pegamos o último elemento. Exemplo
 
-
+```excel
+  |            A                 |        B            | B(*) |                 C                 | C(*) |
+1 |TEC Depósito Dinheiro 650,00|   =splitCount(A1;" ") |   4  | =split(A1;" ";splitCount(A1;" ")) |650,00|
+2 |DA NET SERVIÇOS 2607613 29,80-| =splitCount(A2;" ") |   5  | =split(A2;" ";splitCount(A2;" ")) |29,80-|
+```
+(\*) Conteúdo da célula
 
 ## Referências ##
 
