@@ -132,6 +132,8 @@ End Function
 
 ![PrintScreen-04](https://github.com/josemarsilva/excel-vba-custom-functions/blob/master/PrintScreen-04.PNG) 
 
+![PrintScreen-05](https://github.com/josemarsilva/excel-vba-custom-functions/blob/master/PrintScreen-05.PNG) 
+
 
 ### 3.6. Guia para Demonstração ###
 
