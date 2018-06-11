@@ -134,6 +134,8 @@ End Function
 
 ![PrintScreen-05](https://github.com/josemarsilva/excel-vba-custom-functions/blob/master/PrintScreen-05.PNG) 
 
+![PrintScreen-06](https://github.com/josemarsilva/excel-vba-custom-functions/blob/master/PrintScreen-06.PNG) 
+
 
 ### 3.6. Guia para Demonstração ###
 
@@ -151,6 +153,16 @@ DA NET SERVIÇOS 2607613 29,80-
 2 |DA NET SERVIÇOS 2607613 29,80-| =splitCount(A2;" ") |   5  | =split(A2;" ";splitCount(A2;" ")) |29,80-|
 ```
 (\*) Conteúdo da célula
+
+#### b. Exemplo com toUTF7() ####
+* Suponha uma situação onde você precise fazer comparação entre células extraídas de lugares diferentes. Mas um dos lugares aceita acentuação e caracteres símbolos e o outro não. Como vamos conseguir comparar "diferenciação" com "Diferenciacao"
+
+```excel
+  |      A      |      B      |               C              |   C(*)  |                        D                         | D(*)|
+1 |Sistema#1    |SISTEMA#2    |    Sistema#1 vs Sistema#2    | #1 vs #2|             Comparacao com toUTF7()              |     |
+2 |diferenciação|DIFERENCIACAO|=SE(A2=B2;"Igual";"Diferente")|Diferente| =SE(MAIÚSCULA(toUTF7(A2))=B2;"Igual";"Diferente")|Igual|
+```
+
 
 ## Referências ##
 
