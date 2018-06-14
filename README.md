@@ -164,6 +164,12 @@ DA NET SERVIÇOS 2607613 29,80-
 ```
 
 
+#### c. Excemplo com file save informação da planilha ####
+* Suponha uma situação onde você precise salvar uma parte especifica da planilha. Suponha que você deseja correr a planilha enquanto a coluna que indica se tem dado ou não estiver preenchida, caso afirmativo jogar o conteúdo em um arquivo. Evidente que você poderia salvar direto como texto, mas aqui  o objetivo é ensinar.
+
+* ![excel-vba-custom-functions.xlsm](https://github.com/josemarsilva/excel-vba-custom-functions/blob/master/excel-vba-custom-functions.xlsm) 
+
+
 ## Referências ##
 
-* n/a
+* http://excelevba.com.br/cores-no-vba/
