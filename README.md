@@ -16,7 +16,7 @@ Na seção "3.6. Guia para Demonstração" tem o uso e explicação do uso de ca
 ### 2.1. Function split(strString As String, strSeparator As String, nIdxElement As Integer) ###
 ```vba
 Function split(strString As String, strSeparator As String, nIdxElement As Integer)
-    ' 2018-05-29 - github.com/josemarsilva - split() return nIdxElement (starting with 1) of string strString using separator (strSeparator)
+    ' 2018-05-29 - https://github.com/josemarsilva/excel-vba-custom-functions - split() return nIdxElement (starting with 1) of string strString using separator (strSeparator)
     Dim splitReturn As String
     ' Default
     splitReturn = ""
@@ -56,7 +56,7 @@ End Function
 ### 2.2. Function splitCount(strString As String, strSeparator As String) ###
 ```vba
 Function splitCount(strString As String, strSeparator As String)
-    ' 2018-06-10 - github.com/josemarsilva - splitCount() return the count of elements of string (strString) using separator (strSeparator)
+    ' 2018-06-10 - https://github.com/josemarsilva/excel-vba-custom-functions - splitCount() return the count of elements of string (strString) using separator (strSeparator)
     Dim splitCountReturn As Integer
     ' Default
     splitCountReturn = 0
@@ -92,7 +92,7 @@ End Function
 ### 2.3. Function toUTF7(strString As String) ###
 ```vba
 Function toUTF7(strString As String)
-    ' 2018-05-29 - github.com/josemarsilva - Take accents off
+    ' 2018-05-29 - https://github.com/josemarsilva/excel-vba-custom-functions - Take accents off
     toUTF7 = Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(strString, "á", "a"), "Á", "A"), "à", "a"), "À", "A"), "ã", "a"), "Ã", "A"), "â", "a"), "Â", "A"), "é", "e"), "É", "E"), "ê", "e"), "Ê", "E"), "í", "i"), "Í", "I"), "ó", "o"), "Ó", "O"), "õ", "o"), "Õ", "O"), "ô", "o"), "Ô", "O"), "ú", "u"), "Ú", "U"), "ç", "c"), "Ç", "C")
 End Function
 ```
@@ -139,7 +139,7 @@ End Function
 
 ### 3.6. Guia para Demonstração ###
 
-#### a. Exemplo com split() e splitCount() ####
+#### 3.6.1. Exemplo com split() e splitCount() ####
 * Suponha uma situação de extração de extrato de conta corrente pelo .PDF
 ```pdf
 TEC Depósito Dinheiro 650,00
@@ -154,7 +154,7 @@ DA NET SERVIÇOS 2607613 29,80-
 ```
 (\*) Conteúdo da célula
 
-#### b. Exemplo com toUTF7() ####
+#### 3.6.2. Exemplo com toUTF7() ####
 * Suponha uma situação onde você precise fazer comparação entre células extraídas de lugares diferentes. Mas um dos lugares aceita acentuação e caracteres símbolos e o outro não. Como vamos conseguir comparar "diferenciação" com "Diferenciacao"
 
 ```excel
@@ -164,10 +164,16 @@ DA NET SERVIÇOS 2607613 29,80-
 ```
 
 
-#### c. Excemplo com file save informação da planilha ####
+#### 3.6.3. Exemplo com file save informação da planilha ####
 * Suponha uma situação onde você precise salvar uma parte especifica da planilha. Suponha que você deseja correr a planilha enquanto a coluna que indica se tem dado ou não estiver preenchida, caso afirmativo jogar o conteúdo em um arquivo. Evidente que você poderia salvar direto como texto, mas aqui  o objetivo é ensinar.
 
 * ![excel-vba-custom-functions.xlsm](https://github.com/josemarsilva/excel-vba-custom-functions/blob/master/excel-vba-custom-functions.xlsm) 
+
+
+#### 3.6.4. Exemplo parser de arquivo posicional ####
+* Suponha uma situação onde precisa abrir um arquivo posicional para analisar seu conteúdo.
+
+* ![file-parser.xlsm](https://github.com/josemarsilva/excel-vba-custom-functions/blob/master/file-parser.xlsm) 
 
 
 ## Referências ##
