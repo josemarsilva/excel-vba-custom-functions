@@ -15,7 +15,7 @@ Na seção "3.6. Guia para Demonstração" tem o uso e explicação do uso de ca
 
 ### 2.1. Function customSplit(strString As String, strSeparator As String, nIdxElement As Integer) ###
 ```vba
-Function split(strString As String, strSeparator As String, nIdxElement As Integer)
+Function customSplit(strString As String, strSeparator As String, nIdxElement As Integer)
     ' 2018-05-29 - https://github.com/josemarsilva/excel-vba-custom-functions - split() return nIdxElement (starting with 1) of string strString using separator (strSeparator)
     Dim splitReturn As String
     ' Default
@@ -55,7 +55,7 @@ End Function
 
 ### 2.2. Function customSplitCount(strString As String, strSeparator As String) ###
 ```vba
-Function splitCount(strString As String, strSeparator As String)
+Function customSplitCount(strString As String, strSeparator As String)
     ' 2018-06-10 - https://github.com/josemarsilva/excel-vba-custom-functions - splitCount() return the count of elements of string (strString) using separator (strSeparator)
     Dim splitCountReturn As Integer
     ' Default
@@ -89,7 +89,7 @@ End Function
 ```
 
 
-### 2.3. Function toUTF7(strString As String) ###
+### 2.3. Function customToUTF7(strString As String) ###
 ```vba
 Function customToUTF7(strString As String)
     ' 2018-05-29 - https://github.com/josemarsilva/excel-vba-custom-functions - Take accents off
@@ -179,3 +179,4 @@ DA NET SERVIÇOS 2607613 29,80-
 ## Referências ##
 
 * http://excelevba.com.br/cores-no-vba/
+* https://github.com/OfficeDev/Excel-Custom-Functions
