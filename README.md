@@ -155,7 +155,7 @@ DA NET SERVIÇOS 2607613 29,80-
 
 ```excel
   |            A                 |           B               | B(*) |                      C                        | C(*) |
-1 |TEC Depósito Dinheiro 650,00|   =customSplitCount(A1;" ") |   4  | =customSplit(A1;" ";customSplitCount(A1;" ")) |650,00|
+1 |TEC Depósito Dinheiro 650,00  | =customSplitCount(A1;" ") |   4  | =customSplit(A1;" ";customSplitCount(A1;" ")) |650,00|
 2 |DA NET SERVIÇOS 2607613 29,80-| =customSplitCount(A2;" ") |   5  | =customSplit(A2;" ";customSplitCount(A2;" ")) |29,80-|
 ```
 (\*) Conteúdo da célula
