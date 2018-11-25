@@ -122,7 +122,7 @@ End Function
 
 ### 3.5. Guia para Implantação ###
 
-* "Pasta de trabalho habilitada para macro do Excel (.xlsm)"
+* Você precisa salvar sua planilha **obrigatoriamente** no formato "Pasta de trabalho habilitada para macro do Excel (.xlsm)"
 
 ![PrintScreen-01](https://github.com/josemarsilva/excel-vba-custom-functions/blob/master/doc/PrintScreen-01.PNG) 
 
