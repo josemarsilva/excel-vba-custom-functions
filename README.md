@@ -126,10 +126,7 @@ End Function
 
 ![PrintScreen-01](https://github.com/josemarsilva/excel-vba-custom-functions/blob/master/doc/PrintScreen-01.PNG) 
 
-* Clique no botão "Visual Basic" sob o menu "Desenvolvedor". Se a opção de menu "Desenvolvedor" não estiver habilitado você precisa habilitá-la. Siga os seguintes passos:
-  * Escolha o item de menu "Opções" no menu "Arquivo"
-  * Escolha a opção de menu lateral "Personalizar faixa de opções"
-  * Habilite a opção "Desenvolvedor" na personalização da faixa de opções
+* Clique no botão "Visual Basic" sob o menu "Desenvolvedor". Se a opção de menu "Desenvolvedor" não estiver habilitado você precisa habilitá-la. Siga os seguintes passos: 1) Escolha o item de menu "Opções" no menu "Arquivo"; 2) Escolha a opção de menu lateral "Personalizar faixa de opções"; 3) Habilite a opção "Desenvolvedor" na personalização da faixa de opções
   
 
 ![PrintScreen-02](https://github.com/josemarsilva/excel-vba-custom-functions/blob/master/doc/PrintScreen-02.PNG) 
