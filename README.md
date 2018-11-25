@@ -16,7 +16,7 @@ Na seção "3.6. Guia para Demonstração" tem o uso e explicação do uso de ca
 ### 2.1. Function customSplit(strString As String, strSeparator As String, nIdxElement As Integer) ###
 ```vba
 Function customSplit(strString As String, strSeparator As String, nIdxElement As Integer)
-    ' 2018-05-29 - https://github.com/josemarsilva/excel-vba-custom-functions - split() return nIdxElement (starting with 1) of string strString using separator (strSeparator)
+    ' 2018-05-29 - https://github.com/josemarsilva/excel-vba-custom-functions - customSplit() return nIdxElement (starting with 1) of string strString using separator (strSeparator)
     Dim splitReturn As String
     ' Default
     splitReturn = ""
@@ -56,7 +56,7 @@ End Function
 ### 2.2. Function customSplitCount(strString As String, strSeparator As String) ###
 ```vba
 Function customSplitCount(strString As String, strSeparator As String)
-    ' 2018-06-10 - https://github.com/josemarsilva/excel-vba-custom-functions - splitCount() return the count of elements of string (strString) using separator (strSeparator)
+    ' 2018-06-10 - https://github.com/josemarsilva/excel-vba-custom-functions - customSplitCount() return the count of elements of string (strString) using separator (strSeparator)
     Dim splitCountReturn As Integer
     ' Default
     splitCountReturn = 0
@@ -139,28 +139,28 @@ End Function
 
 ### 3.6. Guia para Demonstração ###
 
-#### 3.6.1. Exemplo com split() e splitCount() ####
+#### 3.6.1. Exemplo com customSplit() e customSplitCount() ####
 * Suponha uma situação de extração de extrato de conta corrente pelo .PDF
 ```pdf
 TEC Depósito Dinheiro 650,00
 DA NET SERVIÇOS 2607613 29,80-
 ```
-* Suponha que você quer extrair a informação de valor que está no final do string. O problema é que não há uma posição fixa. O que sabemos é que o valor é o último elemento separado por um espaço em branco " ". Você até poderia usar a formula PROCURAR() pelo espaço em branco, porém conforme pode ver no exemplo, ele pode se repetir e o pior de tudo não tem quantidade de repetições fixas. Neste problema as funções _split()_ e _splitCount()_ podem ajudar. Com o _splitCount()_ conseguimos saber quantos elementos possui o string separado pelo espaço em branco e com _split()_ pegamos o último elemento. Exemplo
+* Suponha que você quer extrair a informação de valor que está no final do string. O problema é que não há uma posição fixa. O que sabemos é que o valor é o último elemento separado por um espaço em branco " ". Você até poderia usar a formula PROCURAR() pelo espaço em branco, porém conforme pode ver no exemplo, ele pode se repetir e o pior de tudo não tem quantidade de repetições fixas. Neste problema as funções _customSplit()_ e _customSplitCount()_ podem ajudar. Com o _customSplitCount()_ conseguimos saber quantos elementos possui o string separado pelo espaço em branco e com _customSplit()_ pegamos o último elemento. Exemplo
 
 ```excel
-  |            A                 |        B            | B(*) |                 C                 | C(*) |
-1 |TEC Depósito Dinheiro 650,00|   =splitCount(A1;" ") |   4  | =split(A1;" ";splitCount(A1;" ")) |650,00|
-2 |DA NET SERVIÇOS 2607613 29,80-| =splitCount(A2;" ") |   5  | =split(A2;" ";splitCount(A2;" ")) |29,80-|
+  |            A                 |           B               | B(*) |                      C                        | C(*) |
+1 |TEC Depósito Dinheiro 650,00|   =customSplitCount(A1;" ") |   4  | =customSplit(A1;" ";customSplitCount(A1;" ")) |650,00|
+2 |DA NET SERVIÇOS 2607613 29,80-| =customSplitCount(A2;" ") |   5  | =customSplit(A2;" ";customSplitCount(A2;" ")) |29,80-|
 ```
 (\*) Conteúdo da célula
 
-#### 3.6.2. Exemplo com toUTF7() ####
+#### 3.6.2. Exemplo com customToUTF7() ####
 * Suponha uma situação onde você precise fazer comparação entre células extraídas de lugares diferentes. Mas um dos lugares aceita acentuação e caracteres símbolos e o outro não. Como vamos conseguir comparar "diferenciação" com "Diferenciacao"
 
 ```excel
-  |      A      |      B      |               C              |   C(*)  |                        D                         | D(*)|
-1 |Sistema#1    |SISTEMA#2    |    Sistema#1 vs Sistema#2    | #1 vs #2|             Comparacao com toUTF7()              |     |
-2 |diferenciação|DIFERENCIACAO|=SE(A2=B2;"Igual";"Diferente")|Diferente| =SE(MAIÚSCULA(toUTF7(A2))=B2;"Igual";"Diferente")|Igual|
+  |      A      |      B      |               C              |   C(*)  |                        D                               | D(*)|
+1 |Sistema#1    |Sistema#2    |    Sistema#1 vs Sistema#2    | #1 vs #2|             Comparacao com customToUTF7()              |     |
+2 |diferenciação|DIFERENCIACAO|=SE(A2=B2;"Igual";"Diferente")|Diferente| =SE(MAIÚSCULA(customToUTF7(A2))=B2;"Igual";"Diferente")|Igual|
 ```
 
 
