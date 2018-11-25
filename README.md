@@ -5,15 +5,15 @@
 Este repositório contém uma biblioteca com conjunto de funções em **VBA (Visual Basic) para o Excel** que precisei customizar no Excel para atender minhas necessidades e acabei reutilizando com bastante frequencia.
 
 Biblioteca:
-* _**split**(strString As String, strSeparator As String, nIdxElement As Integer)_: retorna o nIdxElement elemento do string strString separado pelo string strSeparator
-* _**splitCount**(strString As String, strSeparator As String)_: retorna a quantidade de elementos do string strString separado pelo string strSeparator
-* _**toUTF7**(strString As String)_: retorna o string sem as acentuações da língua portuguesa
+* _**customSplit**(strString As String, strSeparator As String, nIdxElement As Integer)_: retorna o nIdxElement elemento do string strString separado pelo string strSeparator
+* _**customSplitCount**(strString As String, strSeparator As String)_: retorna a quantidade de elementos do string strString separado pelo string strSeparator
+* _**customToUTF7**(strString As String)_: retorna o string sem as acentuações da língua portuguesa
 
 Na seção "3.6. Guia para Demonstração" tem o uso e explicação do uso de cada uma.
 
 ### 2. Biblioteca de funções excel-vba-custom-functions ###
 
-### 2.1. Function split(strString As String, strSeparator As String, nIdxElement As Integer) ###
+### 2.1. Function customSplit(strString As String, strSeparator As String, nIdxElement As Integer) ###
 ```vba
 Function split(strString As String, strSeparator As String, nIdxElement As Integer)
     ' 2018-05-29 - https://github.com/josemarsilva/excel-vba-custom-functions - split() return nIdxElement (starting with 1) of string strString using separator (strSeparator)
@@ -47,13 +47,13 @@ Function split(strString As String, strSeparator As String, nIdxElement As Integ
     Loop
     
     ' Return
-    split = splitReturn
+    customSplit = splitReturn
     
 End Function
 ```
 
 
-### 2.2. Function splitCount(strString As String, strSeparator As String) ###
+### 2.2. Function customSplitCount(strString As String, strSeparator As String) ###
 ```vba
 Function splitCount(strString As String, strSeparator As String)
     ' 2018-06-10 - https://github.com/josemarsilva/excel-vba-custom-functions - splitCount() return the count of elements of string (strString) using separator (strSeparator)
@@ -83,7 +83,7 @@ Function splitCount(strString As String, strSeparator As String)
     If splitCountReturn > 0 Then
       splitCountReturn = splitCountReturn + 1
     End If
-    splitCount = splitCountReturn
+    customSplitCount = splitCountReturn
     
 End Function
 ```
@@ -91,9 +91,9 @@ End Function
 
 ### 2.3. Function toUTF7(strString As String) ###
 ```vba
-Function toUTF7(strString As String)
+Function customToUTF7(strString As String)
     ' 2018-05-29 - https://github.com/josemarsilva/excel-vba-custom-functions - Take accents off
-    toUTF7 = Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(strString, "á", "a"), "Á", "A"), "à", "a"), "À", "A"), "ã", "a"), "Ã", "A"), "â", "a"), "Â", "A"), "é", "e"), "É", "E"), "ê", "e"), "Ê", "E"), "í", "i"), "Í", "I"), "ó", "o"), "Ó", "O"), "õ", "o"), "Õ", "O"), "ô", "o"), "Ô", "O"), "ú", "u"), "Ú", "U"), "ç", "c"), "Ç", "C")
+    customToUTF7 = Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(strString, "á", "a"), "Á", "A"), "à", "a"), "À", "A"), "ã", "a"), "Ã", "A"), "â", "a"), "Â", "A"), "é", "e"), "É", "E"), "ê", "e"), "Ê", "E"), "í", "i"), "Í", "I"), "ó", "o"), "Ó", "O"), "õ", "o"), "Õ", "O"), "ô", "o"), "Ô", "O"), "ú", "u"), "Ú", "U"), "ç", "c"), "Ç", "C")
 End Function
 ```
 
