@@ -8,8 +8,9 @@ Biblioteca:
 * _**customSplit**(strString As String, strSeparator As String, nIdxElement As Integer)_: retorna o nIdxElement elemento do string strString separado pelo string strSeparator
 * _**customSplitCount**(strString As String, strSeparator As String)_: retorna a quantidade de elementos do string strString separado pelo string strSeparator
 * _**customToUTF7**(strString As String)_: retorna o string sem as acentuações da língua portuguesa
+* _**customStrReptCount**(strString As strElement)_: retorna a quantidade de vezes em que o string strElement se repete dentro do string strString
 
-Na seção "3.6. Guia para Demonstração" tem o uso e explicação do uso de cada uma.
+PS:Na seção "3.6. Guia para Demonstração" tem o uso e explicação do uso de cada uma.
 
 ### 2. Biblioteca de funções excel-vba-custom-functions ###
 
@@ -94,6 +95,24 @@ End Function
 Function customToUTF7(strString As String)
     ' 2018-05-29 - https://github.com/josemarsilva/excel-vba-custom-functions - Take accents off
     customToUTF7 = Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(strString, "á", "a"), "Á", "A"), "à", "a"), "À", "A"), "ã", "a"), "Ã", "A"), "â", "a"), "Â", "A"), "é", "e"), "É", "E"), "ê", "e"), "Ê", "E"), "í", "i"), "Í", "I"), "ó", "o"), "Ó", "O"), "õ", "o"), "Õ", "O"), "ô", "o"), "Ô", "O"), "ú", "u"), "Ú", "U"), "ç", "c"), "Ç", "C")
+End Function
+```
+
+
+
+### 2.4. Function customStrReptCount(strString As strElement) ###
+```vba
+Function customStrReptCount(strString As String, strElement As String)
+    ' 2018-11-25 - https://github.com/josemarsilva/excel-vba-custom-functions - customStrReptCount() return the count of (strElements) elements inside string (strString)
+    Dim nReptCountReturn As Integer
+    ' Default
+    nReptCountReturn = customSplitCount(strString, strElement) - 1
+    ' Special cases
+    If nReptCountReturn <= 0 Then
+      nReptCountReturn = 0
+    End If
+    customStrReptCount = nReptCountReturn
+    
 End Function
 ```
 
