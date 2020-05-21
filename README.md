@@ -10,7 +10,11 @@ Biblioteca:
 * _**customToUTF7**(strString As String)_: retorna o string sem as acentuações da língua portuguesa
 * _**customStrReptCount**(strString As strElement)_: retorna a quantidade de vezes em que o string strElement se repete dentro do string strString
 
-PS:Na seção "3.6. Guia para Demonstração" tem o uso e explicação do uso de cada uma.
+
+Na seção [3.6. Guia para Demonstração](#36-guia-para-demonstração) tem mais explicações sobre cada uma, mas se preferir baixe os exemplos e veja você mesmo:
+
+* [excel-vba-custom-functions.xlsm](#./src/excel-vba-custom-functions.xlsm)
+* [file-parser.xlsm](#./src/file-parser.xlsm)
 
 ### 2. Biblioteca de funções excel-vba-custom-functions ###
 
