@@ -7,8 +7,8 @@ Este repositório contém uma biblioteca com conjunto de funções em **VBA (Vis
 Biblioteca:
 * _**split**(strString As String, strSeparator As String, nIdxElement As Integer)_: retorna o nIdxElement elemento do string strString separado pelo string strSeparator
 * _**splitCount**(strString As String, strSeparator As String)_: retorna a quantidade de elementos do string strString separado pelo string strSeparator
-* _**customToUTF7**(strString As String)_: retorna o string sem as acentuações da língua portuguesa
-* _**customStrReptCount**(strString As strElement)_: retorna a quantidade de vezes em que o string strElement se repete dentro do string strString
+* _**toUTF7**(strString As String)_: retorna o string sem as acentuações da língua portuguesa
+* _**strReptCount**(strString As strElement)_: retorna a quantidade de vezes em que o string strElement se repete dentro do string strString
 
 
 Na seção [3.6. Guia para Demonstração](#36-guia-para-demonstração) tem mais explicações sobre cada uma, mas se preferir baixe os exemplos e veja você mesmo:
@@ -94,20 +94,20 @@ End Function
 ```
 
 
-### 2.3. Function customToUTF7(strString As String) ###
+### 2.3. Function toUTF7(strString As String) ###
 ```vba
-Function customToUTF7(strString As String)
-    ' 2018-05-29 - https://github.com/josemarsilva/excel-vba-custom-functions - Take accents off
-    customToUTF7 = Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(strString, "á", "a"), "Á", "A"), "à", "a"), "À", "A"), "ã", "a"), "Ã", "A"), "â", "a"), "Â", "A"), "é", "e"), "É", "E"), "ê", "e"), "Ê", "E"), "í", "i"), "Í", "I"), "ó", "o"), "Ó", "O"), "õ", "o"), "Õ", "O"), "ô", "o"), "Ô", "O"), "ú", "u"), "Ú", "U"), "ç", "c"), "Ç", "C")
+Function toUTF7(strString As String)
+    ' 2018-05-29 - https://github.com/josemarsilva/excel-vba-custom-functions - toUTF7() - Take accents off
+    toUTF7 = Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(strString, "á", "a"), "Á", "A"), "à", "a"), "À", "A"), "ã", "a"), "Ã", "A"), "â", "a"), "Â", "A"), "é", "e"), "É", "E"), "ê", "e"), "Ê", "E"), "í", "i"), "Í", "I"), "ó", "o"), "Ó", "O"), "õ", "o"), "Õ", "O"), "ô", "o"), "Ô", "O"), "ú", "u"), "Ú", "U"), "ç", "c"), "Ç", "C")
 End Function
 ```
 
 
 
-### 2.4. Function customStrReptCount(strString As strElement) ###
+### 2.4. Function strReptCount(strString As strElement) ###
 ```vba
-Function customStrReptCount(strString As String, strElement As String)
-    ' 2018-11-25 - https://github.com/josemarsilva/excel-vba-custom-functions - customStrReptCount() return the count of (strElements) elements inside string (strString)
+Function strReptCount(strString As String, strElement As String)
+    ' 2018-11-25 - https://github.com/josemarsilva/excel-vba-custom-functions - strReptCount() return the count of (strElements) elements inside string (strString)
     Dim nReptCountReturn As Integer
     ' Default
     nReptCountReturn = splitCount(strString, strElement) - 1
@@ -115,11 +115,40 @@ Function customStrReptCount(strString As String, strElement As String)
     If nReptCountReturn <= 0 Then
       nReptCountReturn = 0
     End If
-    customStrReptCount = nReptCountReturn
+    strReptCount = nReptCountReturn
     
 End Function
 ```
 
+### 2.5. Function procvList( strValue, sheetName, rowIndex, colIndex, strSeparator )
+```vba
+Function procvList(strKeyList As String, strRange As String, keyIndex As Integer, valueIndex As Integer, strItemPrefix As String, strSeparator As String)
+    ' 2020-05-21 - https://github.com/josemarsilva/excel-vba-custom-functions - procvList()
+    ' Initialize ...
+    Dim strReturn As String
+    strReturn = ""
+    Set cellMatrix = range(strRange)
+    ' Loop matrix
+    Dim nIndex As Integer
+    ' Dim strBuffer As String
+    nIndex = 1
+    Do While cellMatrix(nIndex, keyIndex).Value <> ""
+        ' Is key ?
+        If InStr((", " & strKeyList & ", "), (", " & cellMatrix(nIndex, keyIndex).Value & ", ")) Then
+            If strReturn = "" Then
+                strReturn = strItemPrefix & cellMatrix(nIndex, valueIndex).Value
+            Else
+                strReturn = strReturn & strSeparator & strItemPrefix & cellMatrix(nIndex, valueIndex).Value
+            End If
+        End If
+        ' Next ...
+        nIndex = nIndex + 1
+    Loop
+    ' Return
+    procvList = strReturn
+    
+End Function
+```
 
 ## 3. Projeto ##
 
@@ -172,10 +201,8 @@ End Function
 #### 3.6.1. Exemplo com split() e splitCount() ####
 * Suponha uma situação de extração de extrato de conta corrente pelo .PDF
 
-```pdf
-TEC Depósito Dinheiro 650,00
-DA NET SERVIÇOS 2607613 29,80-
-```
+![PrintScreen-07](./doc/PrintScreen-07.PNG) 
+
 
 * Suponha que você quer extrair a informação de valor que está no final do string. O problema é que não há uma posição fixa. O que sabemos é que o valor é o último elemento separado por um espaço em branco " ". Você até poderia usar a formula PROCURAR() pelo espaço em branco, porém conforme pode ver no exemplo, ele pode se repetir e o pior de tudo não tem quantidade de repetições fixas. Neste problema as funções _split()_ e _splitCount()_ podem ajudar. Com o _splitCount()_ conseguimos saber quantos elementos possui o string separado pelo espaço em branco e com _split()_ pegamos o último elemento. Exemplo
 
@@ -186,23 +213,31 @@ DA NET SERVIÇOS 2607613 29,80-
 ```
 (\*) Conteúdo da célula
 
-#### 3.6.2. Exemplo com customToUTF7() ####
+#### 3.6.2. Exemplo com toUTF7() ####
 * Suponha uma situação onde você precise fazer comparação entre células extraídas de lugares diferentes. Mas um dos lugares aceita acentuação e caracteres símbolos e o outro não. Como vamos conseguir comparar "diferenciação" com "Diferenciacao"
+
+![PrintScreen-08](./doc/PrintScreen-08.PNG) 
 
 ```excel
   |      A      |      B      |               C              |   C(*)  |                        D                               | D(*)|
-1 |Sistema#1    |Sistema#2    |    Sistema#1 vs Sistema#2    | #1 vs #2|             Comparacao com customToUTF7()              |     |
-2 |diferenciação|DIFERENCIACAO|=SE(A2=B2;"Igual";"Diferente")|Diferente| =SE(MAIÚSCULA(customToUTF7(A2))=B2;"Igual";"Diferente")|Igual|
+1 |Sistema#1    |Sistema#2    |    Sistema#1 vs Sistema#2    | #1 vs #2|             Comparacao com toUTF7()              |     |
+2 |diferenciação|DIFERENCIACAO|=SE(A2=B2;"Igual";"Diferente")|Diferente| =SE(MAIÚSCULA(toUTF7(A2))=B2;"Igual";"Diferente")|Igual|
 ```
 
 
-#### 3.6.3. Exemplo com file save informação da planilha ####
+#### 3.6.3. Exemplo com `file Save ...` e `file Open ...` dialog boxes informação da planilha ####
 * Suponha uma situação onde você precise salvar uma parte especifica da planilha. Suponha que você deseja correr a planilha enquanto a coluna que indica se tem dado ou não estiver preenchida, caso afirmativo jogar o conteúdo em um arquivo. Evidente que você poderia salvar direto como texto, mas aqui  o objetivo é ensinar.
 
-* ![excel-vba-custom-functions.xlsm](https://github.com/josemarsilva/excel-vba-custom-functions/blob/master/src/excel-vba-custom-functions.xlsm) 
+![PrintScreen-09](./doc/PrintScreen-09.PNG) 
 
 
-#### 3.6.4. Exemplo parser de arquivo posicional ####
+#### 3.6.4. Exemplo com PROCVLIST()
+* Suponha que você tenha uma lista de chaves que precise recuperar o valor
+
+![PrintScreen-10](./doc/PrintScreen-10.PNG) 
+
+
+#### 3.6.5. Exemplo parser de arquivo posicional ####
 * Suponha uma situação onde precisa abrir um arquivo posicional para analisar seu conteúdo.
 
 * ![file-parser.xlsm](https://github.com/josemarsilva/excel-vba-custom-functions/blob/master/src/file-parser.xlsm) 
