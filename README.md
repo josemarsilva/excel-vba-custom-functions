@@ -9,7 +9,7 @@ Biblioteca:
 * _**splitCount**(strString As String, strSeparator As String)_: retorna a quantidade de elementos do string strString separado pelo string strSeparator
 * _**toUTF7**(strString As String)_: retorna o string sem as acentuações da língua portuguesa
 * _**strReptCount**(strString As strElement)_: retorna a quantidade de vezes em que o string strElement se repete dentro do string strString
-
+* _**procvList**(strKeyList, strRange, keyIndex, valueIndex, strItemPrefix, strSeparator)_: retorna os valores correspondentes a lista de chaves passadas como parâmetro
 
 Na seção [3.6. Guia para Demonstração](#36-guia-para-demonstração) tem mais explicações sobre cada uma, mas se preferir baixe os exemplos e veja você mesmo:
 
@@ -120,7 +120,7 @@ Function strReptCount(strString As String, strElement As String)
 End Function
 ```
 
-### 2.5. Function procvList( strValue, sheetName, rowIndex, colIndex, strSeparator )
+### 2.5. Function procvList(strKeyList, strRange, keyIndex, valueIndex, strItemPrefix, strSeparator)
 ```vba
 Function procvList(strKeyList As String, strRange As String, keyIndex As Integer, valueIndex As Integer, strItemPrefix As String, strSeparator As String)
     ' 2020-05-21 - https://github.com/josemarsilva/excel-vba-custom-functions - procvList()
@@ -206,24 +206,10 @@ End Function
 
 * Suponha que você quer extrair a informação de valor que está no final do string. O problema é que não há uma posição fixa. O que sabemos é que o valor é o último elemento separado por um espaço em branco " ". Você até poderia usar a formula PROCURAR() pelo espaço em branco, porém conforme pode ver no exemplo, ele pode se repetir e o pior de tudo não tem quantidade de repetições fixas. Neste problema as funções _split()_ e _splitCount()_ podem ajudar. Com o _splitCount()_ conseguimos saber quantos elementos possui o string separado pelo espaço em branco e com _split()_ pegamos o último elemento. Exemplo
 
-```excel
-  |            A                 |           B               | B(*) |                      C                        | C(*) |
-1 |TEC Depósito Dinheiro 650,00  | =splitCount(A1;" ") |   4  | =split(A1;" ";splitCount(A1;" ")) |650,00|
-2 |DA NET SERVIÇOS 2607613 29,80-| =splitCount(A2;" ") |   5  | =split(A2;" ";splitCount(A2;" ")) |29,80-|
-```
-(\*) Conteúdo da célula
-
 #### 3.6.2. Exemplo com toUTF7() ####
 * Suponha uma situação onde você precise fazer comparação entre células extraídas de lugares diferentes. Mas um dos lugares aceita acentuação e caracteres símbolos e o outro não. Como vamos conseguir comparar "diferenciação" com "Diferenciacao"
 
 ![PrintScreen-08](./doc/PrintScreen-08.PNG) 
-
-```excel
-  |      A      |      B      |               C              |   C(*)  |                        D                               | D(*)|
-1 |Sistema#1    |Sistema#2    |    Sistema#1 vs Sistema#2    | #1 vs #2|             Comparacao com toUTF7()              |     |
-2 |diferenciação|DIFERENCIACAO|=SE(A2=B2;"Igual";"Diferente")|Diferente| =SE(MAIÚSCULA(toUTF7(A2))=B2;"Igual";"Diferente")|Igual|
-```
-
 
 #### 3.6.3. Exemplo com `file Save ...` e `file Open ...` dialog boxes informação da planilha ####
 * Suponha uma situação onde você precise salvar uma parte especifica da planilha. Suponha que você deseja correr a planilha enquanto a coluna que indica se tem dado ou não estiver preenchida, caso afirmativo jogar o conteúdo em um arquivo. Evidente que você poderia salvar direto como texto, mas aqui  o objetivo é ensinar.
