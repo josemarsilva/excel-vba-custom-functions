@@ -61,7 +61,7 @@ End Function
 ### 2.2. Function splitCount(strString As String, strSeparator As String) ###
 ```vba
 Function splitCount(strString As String, strSeparator As String)
-    ' 2018-06-10 - https://github.com/josemarsilva/excel-vba-custom-functions - splitCount() return the count of elements of string (strString) using separator (strSeparator)
+    ' 2020-05-28 - https://github.com/josemarsilva/excel-vba-custom-functions - splitCount() return the count of elements of string (strString) using separator (strSeparator)
     Dim splitCountReturn As Integer
     ' Default
     splitCountReturn = 0
@@ -85,7 +85,7 @@ Function splitCount(strString As String, strSeparator As String)
     Loop
     
     ' Return
-    If splitCountReturn > 0 Then
+    If splitCountReturn > 0 Or Len(strString) > 0 Then
       splitCountReturn = splitCountReturn + 1
     End If
     splitCount = splitCountReturn
